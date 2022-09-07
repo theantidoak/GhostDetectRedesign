@@ -52,6 +52,10 @@ sup {
     margin: 0 auto;
 }
 
+.container h1 {
+    color: #003a50;
+}
+
 .article-credits {
     display: flex;
     justify-content: space-between;
@@ -79,7 +83,7 @@ sup {
     color: #0175a1;
     line-height: 1.75rem;
     padding: 1rem .5rem;
-    font-family: 'montserratthin', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 3rem 0 4rem;
 }
 
@@ -110,6 +114,7 @@ sup {
     content: counter(li) '.';
     color: black;
     margin-right: .25rem;
+    font-family: 'montserratthin', sans-serif;
 }
 
 .article-content h2 {
@@ -229,14 +234,42 @@ textarea:focus {
     align-items: center;
 }
 
-canvas {
-    border: 1.75px solid red;
+table {
+    width: 95%;
+    margin: 1rem;
+    border: .5px solid #f75d33;
 }
 
+#thead th {
+    padding: .75rem 1rem;
+    text-align: left;
+    background-color: #f75d33;
+    color: white;
+    text-decoration: underline;
+}
 
+tr:nth-child(even) {
+    background-color: #EEEEEE;
+}
 
+tr:nth-child(odd) {
+    background-color: #fff;
+}
 
+.output-card tbody th {
+    padding: .5rem 0;
+    color: #0175a1;
+}
 
+.output-card th p {
+    padding: 0;
+    height: 15px;
+    color: black;
+}
+
+.output-card table th, td {
+    padding: 1rem;
+}
 
 
 
