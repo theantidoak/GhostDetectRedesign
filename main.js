@@ -20,9 +20,6 @@
 })();
 
 
-
-
-
 // Header Function
 
 const navBarFeatures = (function() {

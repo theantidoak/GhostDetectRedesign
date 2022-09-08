@@ -10,7 +10,6 @@
 
 * {
     box-sizing: border-box;
-
 }
 
 
@@ -47,6 +46,8 @@ sup {
     top: -0.25em;
 }
 
+
+/*-----Content Container-----*/
 .container {
     margin: 0 auto;
     padding: 0 .75rem;
@@ -224,7 +225,6 @@ input[type='checkbox']:checked ~ .collapsible {
     justify-content: space-between;
     gap: 1rem;
     margin-bottom: 4rem;
-    /* padding: 0 2rem; */
 }
 
 .input .input-item {
@@ -447,6 +447,8 @@ colgroup {
     display: none;
 }
 
+
+/*-----Related articles and advertisement-----*/
 aside {
     width: clamp(18rem, 93%, 75rem);
     margin: 0 auto 5rem;
@@ -592,22 +594,6 @@ aside button:hover {
 .related-articles li a div {
     width: 12.5rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
