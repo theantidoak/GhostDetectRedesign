@@ -1,10 +1,9 @@
 @font-face {
     font-family: 'montserratthin';
-    src: url('montserrat-thin-webfont.woff2') format('woff2'),
-         url('montserrat-thin-webfont.woff') format('woff');
+    src: url('fonts/montserrat-thin-webfont.woff2') format('woff2'),
+         url('fonts/montserrat-thin-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 
