@@ -50,21 +50,30 @@ sup {
 .container {
     width: 50rem;
     margin: 0 auto;
+    width: clamp(20rem, 100%, 50rem);
+    padding: 0 1rem;
 }
+
 
 .container h1 {
     color: #003a50;
+    font-size: 3rem;
+}
+
+.container img {
+    height: auto;
+    width: clamp(17rem, 100%, 50rem);
 }
 
 .article-credits {
     display: flex;
     justify-content: space-between;
-    
-    line-height: 1.75rem;
-    margin: 1rem 0 3rem;
+    line-height: clamp(1.15rem, 3vw, 1.75rem);
+    font-size: clamp(.8rem, 3vw , 1rem);
+    margin: clamp(.5rem, 2vw ,1rem) 0 3rem;
 }
 
-.article-credits a {
+a {
     color: #0175a1;
     font-weight: 600;
 }
@@ -128,13 +137,54 @@ sup {
 .article-content .section-titles {
     background-color: #0175a1;
     color: #fff;
-    padding: 1rem;
+    padding: 1rem 2.5rem 1rem 1rem;
     font-size: 1.75rem;
     font-weight: 600;
-    margin-top: 3.5rem;
-    margin-bottom: 1.75rem;
+    margin: 2.5rem 0 clamp(.75rem, 4%, 1.75rem) 0;
     box-shadow: 0 1px 3px hsla(0,0%,73.3%,.8);
     border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-section {
+    position: relative;
+}
+
+input[type='checkbox'] {
+    appearance: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: white;
+    padding: 0 1rem;
+    height: 3.75rem;
+    width: 100%;
+    top: 0;
+    position: absolute;
+}
+
+.output-card input[type='checkbox'] {
+    height: 3rem;
+}
+
+input[type='checkbox']:checked::after {
+    content: '+';
+    font-size: 1.5rem;
+}
+
+input[type='checkbox']:after {
+    content: '-';
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input[type='checkbox']:checked ~ .collapsible {
+    display: none;
+}
+
+.section-titles:focus {
+    background-color: orange;
 }
 
 .article-content p span {
@@ -146,17 +196,23 @@ sup {
 
 .input {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    gap: 1rem;
     margin-bottom: 4rem;
-    padding: 0 2rem;
+    /* padding: 0 2rem; */
 }
 
 .input .input-item {
     display: inline-block;
     width: 20rem;
-    margin: 0;
+    margin: 0 auto;
 }
 
+.input-item h3 {
+    font-size: 1.75rem;
+    margin-top: 0;
+}
 
 textarea {
     font-family: inherit;
@@ -167,7 +223,6 @@ textarea {
     border-style: none solid solid none;
     border-width: medium 1px 1px medium;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
-    padding: 5px 8px;
     transition: background-color 0.2s ease 0s;
     margin-bottom: 1rem;
 }
@@ -176,6 +231,7 @@ textarea:focus {
       background: none repeat scroll 0 0 #FFFFFF;
       outline-width: 0;
 }
+
 
 .input-item div {
     text-align: center;
@@ -193,8 +249,8 @@ textarea:focus {
 .output-card {
     background-color: #fff;
     box-shadow: 0 5px 15px 0 rgba(0,0,0,.15);
-    margin-top: 1.5rem;
-    padding-bottom: 1.75rem;
+    margin: 1.5rem 0 1.75rem 0;
+    padding-bottom: 1.5rem;
 }
 
 .output-card h3 {
@@ -202,13 +258,14 @@ textarea:focus {
     color: #fff;
     background-color: #014965;
     font-size: 1.5rem;
-    margin: 0;
-    padding: .8rem 1rem;
+    margin-bottom: clamp(.25rem, 3%, 1.5rem);
+    padding: .8rem 2rem .8rem 1rem;
 }
 
 .output-card p {
     margin: 0 1rem;
     padding: 1rem 0;
+    font-size: clamp(.85rem, 3vw ,18px);
 }
 
 .face-output {
@@ -219,33 +276,60 @@ textarea:focus {
 .face-output fieldset {
     border: none;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    gap: .75rem;
 }
 
+
+.face-output .faces {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+    text-align: center;
+    align-items: center;
+}
+
+.face-output canvas, .face-output img {
+    width: 18.75rem;
+    height: 25rem;
+}
 
 .face-output .canvas-div div {
     font-weight: 700;
 }
 
-.face-output .faces {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-    align-items: center;
-}
-
 table {
     width: 95%;
-    margin: 1rem;
-    border: .5px solid #f75d33;
+    margin: 1rem auto;
+    border-bottom: 2px solid #ee9867;
 }
 
+
 #thead th {
-    padding: .75rem 1rem;
+    padding: .75rem clamp(.25rem, 1%, 1rem);
     text-align: left;
-    background-color: #f75d33;
+    background-color: #ee9867;
     color: white;
     text-decoration: underline;
+}
+
+#thead th:first-child {
+    padding-left: .25rem;
+}
+
+
+tbody {
+    padding-right: 6rem;
+}
+
+tbody:not(p) {
+    font-size: clamp(.8rem, 3vw , 1rem);
+}
+
+tbody tr {
+    height: fit-content;
 }
 
 tr:nth-child(even) {
@@ -256,7 +340,7 @@ tr:nth-child(odd) {
     background-color: #fff;
 }
 
-.output-card tbody th {
+tbody th {
     padding: .5rem 0;
     color: #0175a1;
 }
@@ -265,18 +349,78 @@ tr:nth-child(odd) {
     padding: 0;
     height: 15px;
     color: black;
+    line-height: normal;
+    margin: 0 clamp(.25rem, 4%, 1rem);
 }
 
 .output-card table th, td {
-    padding: 1rem;
+    padding: .5rem .25rem .75rem;
+}
+
+tbody td {
+    text-align: left;
+    padding: .75rem clamp(.25rem, 1%, 1rem);
+}
+
+colgroup {
+    width: 42rem;
+}
+
+.graph-div, .graph-svg {
+    height: auto;
+    width: clamp(18rem, 100%, 39rem);
+    margin: 0 auto;
+}
+
+.graph-svg {
+    height: auto;
+    width: 100%;
+}
+
+.graph-key {
+    width: 15rem;
+    margin: 0 auto;
+}
+
+.graph-key ul {
+    width: 15rem;
+    margin: .5rem auto 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.graph-key svg {
+    position: relative;
+    top: .15rem;
 }
 
 
+.suspect-ul {
+    margin-top: 1.5rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    padding: 0;
+}
 
+.suspect-ul li {
+    text-indent: -1rem;
+    font-size: clamp(.85rem, 3vw ,18px);
+    padding: 0 clamp(2rem, 10%, 4rem);
+}
 
+.suspect-ul li b {
+    color: #003a50;
+}
 
-
-
+.show-data {
+    display: none;
+}
 
 
 
@@ -475,6 +619,7 @@ ul.nav-list li:not(.link-list-li):hover button {
     width: 30%;
     height: 2.5rem;
     margin-right: .5rem;
+    position: relative;
 }
 
 .open-search label {
