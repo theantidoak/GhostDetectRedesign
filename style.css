@@ -78,6 +78,10 @@ a {
     font-weight: 600;
 }
 
+a:hover {
+    color: #0192c9;
+}
+
 .article-credits .published {
     font-style: italic;
     color: #444;
@@ -126,6 +130,14 @@ a {
     font-family: 'montserratthin', sans-serif;
 }
 
+.in-this-article a {
+    text-decoration: none;
+}
+
+.article-content {
+    margin-bottom: 4rem;
+}
+
 .article-content h2 {
     font-size: 2rem;
     line-height: 2.5rem;
@@ -147,6 +159,14 @@ a {
     justify-content: space-between;
 }
 
+input[type='checkbox']:hover + .section-titles, input[type='checkbox']:checked ~ .section-titles {
+    background-color: #014965;
+}
+
+/* input[type='checkbox']:checked:hover ~ .section-titles {
+    background-color: #0175a1;
+} */
+
 .text-section {
     position: relative;
 }
@@ -162,6 +182,7 @@ input[type='checkbox'] {
     width: 100%;
     top: 0;
     position: absolute;
+    cursor: pointer;
 }
 
 .output-card input[type='checkbox'] {
@@ -173,10 +194,14 @@ input[type='checkbox']:checked::after {
     font-size: 1.5rem;
 }
 
-input[type='checkbox']:after {
+input[type='checkbox']::after {
     content: '-';
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
+}
+
+input[type='checkbox']:hover::after {
+    transform: scale(1.2);
 }
 
 input[type='checkbox']:checked ~ .collapsible {
@@ -421,6 +446,15 @@ colgroup {
 .show-data {
     display: none;
 }
+
+
+.rel-wide, .ad-wide {
+    width: 48rem;
+    height: auto;
+    margin: 0 auto;
+}
+
+
 
 
 
