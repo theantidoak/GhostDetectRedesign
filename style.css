@@ -34,8 +34,17 @@ h1, h2, h3, h4, h5 {
 }
 
 p {
-    font-size: 18px;
-    line-height: 27px;
+    font-size: clamp(1rem, 4vw, 18px);
+    line-height: clamp(1.25rem, 4vw, 27px);
+}
+
+a {
+    color: #0175a1;
+    font-weight: 600;
+}
+
+a:hover {
+    color: #0192c9;
 }
 
 sup {
@@ -49,14 +58,14 @@ sup {
 /*-----Content Container-----*/
 .container {
     margin: 0 auto;
-    padding: 0 .75rem;
+    padding: 0 .85rem;
     width: clamp(20rem, 100%, 50rem);
 }
 
 
 .container h1 {
     color: #003a50;
-    font-size: 3rem;
+    font-size: clamp(1.75rem, 7.5vw, 3rem);
 }
 
 .container img {
@@ -69,22 +78,12 @@ sup {
     justify-content: space-between;
     line-height: clamp(1.15rem, 3vw, 1.75rem);
     font-size: clamp(.8rem, 3vw , 1rem);
-    margin: clamp(.5rem, 2vw ,1rem) 0 3rem;
-}
-
-a {
-    color: #0175a1;
-    font-weight: 600;
-}
-
-a:hover {
-    color: #0192c9;
+    margin: clamp(.5rem, 2vw ,1rem) 0 clamp(1.5rem, 5.5vw ,3rem);
 }
 
 .article-credits .published {
     font-style: italic;
     color: #444;
-    
 }
 
 .in-this-article {
@@ -96,7 +95,7 @@ a:hover {
     line-height: 1.75rem;
     padding: 1rem .5rem;
     font-family: 'Montserrat', sans-serif;
-    margin: 3rem 0 4rem;
+    margin: 3rem 0 clamp(1rem, 5.5vw, 4rem);;
 }
 
 .in-this-article h4 {
@@ -138,69 +137,98 @@ a:hover {
 }
 
 .article-content h2 {
-    font-size: 2rem;
-    line-height: 2.5rem;
+    font-size: clamp(1.5rem, 5.5vw, 2rem);
+    line-height: clamp(1.65rem, 6.5vw, 2.5rem);
     margin-bottom: 1.5rem;
     color: #003a50;
 }
 
 
-.article-content .section-titles {
+.text-section {
+    position: relative;
+    margin-top: clamp(2.5rem, 7vw, 4rem);
+}
+
+input[type='checkbox'] {
+    appearance: none;
+    width: 100%;
+    cursor: pointer;
     background-color: #0175a1;
+    background-image: url('photos/newRemove.svg');
+    background-repeat: no-repeat;
+    background-size: 1.1rem;
+    background-position: right 3% center;
     color: #fff;
-    padding: 1rem 2.5rem 1rem 1rem;
-    font-size: 1.75rem;
+    font-family: "DM Serif Text",serif;
+    font-size: clamp(1.5rem, 5vw, 1.75rem);
     font-weight: 600;
-    margin: 2.5rem 0 clamp(.75rem, 4%, 1.75rem) 0;
+    margin: clamp(1rem, 4vw, 2.5rem) 0 clamp(.75rem, 4%, 1.75rem) 0;
+    padding: 1rem 2.5rem 1rem clamp(.25rem, 1vw, 1rem);
     box-shadow: 0 1px 3px hsla(0,0%,73.3%,.8);
     border-radius: 3px;
     display: flex;
     justify-content: space-between;
 }
 
-input[type='checkbox']:hover + .section-titles, input[type='checkbox']:checked ~ .section-titles {
+#ghostwriting-title::after {
+    content: 'What is academic ghostwriting?';
+}
+
+#ghostdetect-title::after {
+    content: 'How does GhostDetect® work?';
+}
+
+#tool-title::after {
+    content: 'GhostDetect® in action';
+}
+
+#faces-title::after {
+    content: 'Flury-Riedwyl Faces';
+}
+
+.output-card input[type='checkbox'] {
+    text-decoration: underline;
+    color: #fff;
     background-color: #014965;
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
+    margin-bottom: clamp(.25rem, 3%, 1.5rem);
+    padding: .8rem 2rem .8rem 1rem;
 }
 
-
-.text-section {
-    position: relative;
-    margin-top: 4rem;
+#fr-faces::after {
+    content: 'Flury-Riedwyl Faces';
 }
 
-input[type='checkbox'] {
-    appearance: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    color: white;
-    padding: 0 1rem;
-    height: 3.75rem;
-    width: 100%;
-    top: 0;
-    position: absolute;
-    cursor: pointer;
-    margin: 0;
+#stats::after {
+    content: 'Statistics';
 }
 
-input[type='checkbox']:checked::after {
-    content: '+';
-    font-size: 1.5rem;
+#speech-parts::after {
+    content: 'Parts of Speech';
 }
 
-.article-content input[type='checkbox'] {
-    height: 4rem;
+#func-words::after {
+    content: 'Function Words';
 }
 
-input[type='checkbox']::after {
-    content: '-';
-    font-size: 1.5rem;
-    font-family: 'Courier New', Courier, monospace;
-    bottom: 0;
+#syllables-in-word::after {
+    content: 'Syllables in Word';
 }
 
-input[type='checkbox']:hover::after {
-    transform: scale(1.2);
+#sent-length::after {
+    content: 'Sentence Lengths';
+}
+
+#suspect-words::after {
+    content: 'Suspect Words and Phrases';
+}
+
+input[type='checkbox']:checked {
+    background-image: url('photos/newAdd.svg');
+}
+
+input[type='checkbox']:hover {
+    background-color: #014965;
 }
 
 input[type='checkbox']:checked ~ .collapsible {
@@ -223,7 +251,7 @@ input[type='checkbox']:checked ~ .collapsible {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 1rem;
-    margin-bottom: 4rem;
+    margin-bottom: clamp(2.5rem, 8vw, 4rem);
 }
 
 .input .input-item {
@@ -239,7 +267,7 @@ input[type='checkbox']:checked ~ .collapsible {
 
 textarea {
     font-family: inherit;
-    width: 20rem;
+    width: clamp(18.5rem, 92vw ,20rem);
     height: 12rem;
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
     border-radius: 6px;
@@ -248,6 +276,7 @@ textarea {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
     transition: background-color 0.2s ease 0s;
     margin-bottom: 1rem;
+    padding: .25rem;
 }
   
 textarea:focus {
@@ -261,34 +290,34 @@ textarea:focus {
 }
 
 .input-item button {
-    background-color: #e97b3c;
+    background-color: #ff8514;
     border: none;
     color: #fff;
     transition: background-color ease .5s;
     border-radius: 3px;
     padding: .5rem 1rem;
+    cursor: pointer;
+}
+
+.input-item button:hover {
+    background-color: #d06122;
 }
 
 .output-card {
     background-color: #fff;
     box-shadow: 0 5px 15px 0 rgba(0,0,0,.15);
     margin: 1.5rem 0 1.75rem 0;
-    padding-bottom: 1.5rem;
-}
-
-.output-card h3 {
-    text-decoration: underline;
-    color: #fff;
-    background-color: #014965;
-    font-size: 1.5rem;
-    margin-bottom: clamp(.25rem, 3%, 1.5rem);
-    padding: .8rem 2rem .8rem 1rem;
+    padding-bottom: clamp(.5rem, 2vw, 1.5rem);
 }
 
 .output-card p {
     margin: 0 1rem;
-    padding: 1rem 0;
-    font-size: clamp(.85rem, 3vw ,18px);
+    padding: clamp(.5rem, 5vw, 1rem), 0;
+    font-size: clamp(.85rem, 3vw, 18px);
+}
+
+.output-card span {
+    font-size: clamp(.85rem, 3vw, 18px);
 }
 
 .face-output {
@@ -302,6 +331,7 @@ textarea:focus {
     flex-direction: column;
     align-items: center;
     gap: .75rem;
+    padding-top: 1rem;
 }
 
 
@@ -314,9 +344,28 @@ textarea:focus {
     align-items: center;
 }
 
+.face-images {
+    position: relative;
+    width: clamp(16.75rem, 30vw, 18.75rem);
+    height: clamp(22.33rem, 34vw, 25rem);
+    display: flex;
+}
+
 .face-output canvas, .face-output img {
-    width: 18.75rem;
-    height: 25rem;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    margin: 0 auto;
+}
+
+.face-output .frown {
+    visibility: hidden;
+    position: absolute;
+    top: 65%;
+    left: 30%;
+    width: 37.5%;
+    height: auto;
+    z-index: 2;
 }
 
 .face-output .canvas-div div {
@@ -326,14 +375,14 @@ textarea:focus {
 table {
     width: 95%;
     margin: 1rem auto;
-    border-bottom: 2px solid #ee9867;
+    border-bottom: 2px solid rgb(236, 137, 81);
 }
 
 
 #thead th {
     padding: .75rem clamp(.25rem, 1%, 1rem);
     text-align: left;
-    background-color: #ee9867;
+    background-color:rgb(236, 137, 81);
     color: white;
     text-decoration: underline;
 }
@@ -392,7 +441,15 @@ colgroup {
 .graph-div, .graph-svg {
     height: auto;
     width: clamp(18rem, 100%, 39rem);
-    margin: 0 auto;
+}
+
+.graph-svg {
+    margin-bottom: .5rem;
+}
+
+.graph-div {
+    margin: 0 auto clamp(.5rem, 3vw, 1.75rem);;
+
 }
 
 .graph-svg {
@@ -407,20 +464,19 @@ colgroup {
 
 .graph-key ul {
     width: 15rem;
-    margin: .5rem auto 0;
     list-style: none;
     padding: 0;
     display: flex;
     gap: 1.5rem;
     justify-content: center;
     align-items: center;
+    margin: 0;
 }
 
 .graph-key svg {
     position: relative;
     top: .15rem;
 }
-
 
 .suspect-ul {
     margin-top: 1.5rem;
@@ -450,7 +506,7 @@ colgroup {
 /*-----Related articles and advertisement-----*/
 aside {
     width: clamp(18rem, 93%, 75rem);
-    margin: 0 auto 5rem;
+    margin: 0 auto clamp(3rem, 10vw, 4rem);
 }
 
 aside .top-ad-div {
@@ -607,7 +663,7 @@ header {
 }
 
 header a {
-    margin: 1rem .5rem 1rem 2rem;
+    margin: 1rem .5rem 1rem clamp(.5rem, 1vw, 2rem);
 }
 
 header img {
@@ -696,7 +752,7 @@ ul.nav-list li:not(.link-list-li):hover button {
 }
 
 .sign-and-search {
-    margin-left: 1rem;
+    margin-left: clamp(.25rem, 1vw, 1rem);
     display: flex;
 }
 

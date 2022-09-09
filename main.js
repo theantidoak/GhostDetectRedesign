@@ -6,16 +6,35 @@
     const shownData = document.querySelectorAll('.show-data');
     const textArea1 = document.querySelector('#text-area1');
     const textArea2 = document.querySelector('#text-area2');
+    const spanRef = document.querySelector('.span-ref');
+    const spanQuery = document.querySelector('.span-query');
+    const smile = document.querySelector('#smile');
+    const frown = document.querySelector('#original-face');
+    const frownImg = document.querySelectorAll('.frown');
 
     showDataButton.addEventListener('click', renderData);
+
+    smile.addEventListener('change', showFrown);
+    frown.addEventListener('input', showFrown);
 
     function renderData() {
         noData.forEach((data) => data.style.display = 'none');
         shownData.forEach((data) => data.style.display = 'block');
         showDataButton.style.display = 'none';
+        spanRef.style.display = 'inline';
+        spanQuery.style.display = 'inline';
         textArea1.value = `“What’s the good of knowledge if you’re not going to do anything with it?” “Perhaps he is. Perhaps it will be sufficient satisfaction merely to know, as it’s a sufficient satisfaction to an artist to produce a work of art. And perhaps it’s only a step toward something further.” - W. Somerset Maugham in 'The Razor's Edge'.`
         textArea2.value = `"If one were properly to perform a difficult and subtle act, he should first inspect the end to be achieved and then, once he had accepted the end as desirable, he should forget it completely and concentrate solely on the means. By this method he would not be moved to false action by anxiety or hurry or fear." - John Steinbeck in 'East of Eden'.`;
     }
+
+    function showFrown() {
+        if (smile.checked === true || frown.checked === false) {
+            frownImg.forEach((frown) => frown.style.visibility = 'hidden');
+        } else if (smile.checked === false || frown.checked === true) {
+            frownImg.forEach((frown) => frown.style.visibility = 'visible');
+        }
+    }
+
 
 })();
 
