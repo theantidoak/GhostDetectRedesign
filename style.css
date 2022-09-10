@@ -585,6 +585,7 @@ aside select {
     font-weight: 300;
     color: rgb(0, 58, 80);
     cursor: pointer;
+    min-width: 16.3rem;
 }
 
 aside select:focus {
