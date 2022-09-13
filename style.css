@@ -584,7 +584,7 @@ aside select {
     font-family: 'Montserrat';
     font-weight: 300;
     color: rgb(0, 58, 80);
-    cursor: pointer;
+    cursor: pointer; 
     min-width: 16.3rem;
 }
 
